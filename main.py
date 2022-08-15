@@ -5,11 +5,16 @@ def add_data(key, value):
     data[key] = value
 def delete_data(key):
     del data[key]
+def modify_data(key):
+    value = input("Enter new value: ")
+    add_data(key, value)
+    print("Data modified")
 def menu():
     print("1. Get data")
     print("2. Add data")
     print("3. Delete data")
-    print("4. Exit")
+    print("4. Modify data")
+    print("5. Exit")
 
 if __name__ == "__main__":
     with open('data.json', "r") as f:
@@ -27,6 +32,9 @@ if __name__ == "__main__":
         key = input("Enter key: ")
         delete_data(key)
     elif choice == 4:
+        key = input("Enter key: ")
+        modify_data(key)
+    elif choice == 5:
         exit()
     else:
         print("Invalid choice")
